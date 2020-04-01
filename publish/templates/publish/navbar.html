@@ -16,7 +16,7 @@
 <title>Gabriel Asorey Portfolio</title>
 </head>
 <body>
-   <h1>testin</h1>
+   
    <div class="sidenav">
     <a href="{% url 'resume' %}">Resume</a>
     <button class="dropdown-btn">Projetos
@@ -24,48 +24,22 @@
     </button>
     <div class="dropdown-container">
       <a href="{% url 'publish_list' %}">List</a>
-      
     </div>
-    <a href=""></a>
-     
-    {{ name_list }}
-      {% for instance in name_list %}
-      <p>{{ instance.publish_name }}</p>
-      {% endfor %}
-   
     <a href="">Certificados</a>
     {% if user.is_superuser%}
-      
       <a class="nav-item nav-link active" href="{% url 'publish_form' %}">Nova Publicação</a>
       <a class="nav-item nav-link active" href="{% url 'logout' %}">Logout</a>
-     
-      {% else %}
+    {% else %}
       <a href="{% url 'admin:index' %}" class="nav-item nav-link active">Admin</a>
       <a class="nav-link"  href="https://www.linkedin.com/in/gabriel-asorey-45881156/"><i class="fab fa-linkedin-in fa-lg"></i></a>
       <a class="nav-link" href="https://github.com/Gasorey"><i class="fab fa-github fa-lg" ></i></a>
-      
-      {% endif %}
+    {% endif %}
       
     
   </div>
-  {{ name_list }}
-      {% for instance in name_list %}
-      <p>{{ instance.publish_name }}</p>
-      {% endfor %}
-  
- 
   {%block content %}
 
   {% endblock %}
-  
-  <div class="container">
-    
-  
-  </div>
-
-
-
-
  
   <script src="{% static "publish/js/navbar.js" %}" type="text/javascript"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>

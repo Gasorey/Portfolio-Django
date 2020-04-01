@@ -4,4 +4,4 @@ from .models import Publish
 class PublishCreateForm(forms.ModelForm):
   class Meta:
     model = Publish
-    fields = ['user','author','publish_name','description']
+    fields = ['user','author','name','description']

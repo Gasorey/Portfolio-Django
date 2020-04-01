@@ -2,14 +2,12 @@
 {% load static %}
 {% block content %}
 <div class="container">
-
   
-  {{ name_list }}
-  {% for instance in name_list %}
-  <p>{{ instance.name}}</p>
-  {% endfor %}
-  
+  <h1>Acima do For</h1>  
   <h1>Teste</h1>
+  {% for names in object_test %}
+  <a href="">{{ names.name }}</a>
+  {% endfor %}
 </div>
 
 {% endblock %}

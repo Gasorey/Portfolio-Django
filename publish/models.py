@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 class Publish(models.Model):
   user = models.ForeignKey(User,null=True, on_delete=models.CASCADE )
   author = models.CharField(max_length=256, null= True)
-  publish_name = models.CharField(max_length=256, null = True)
+  name = models.CharField(max_length=256, null = True)
   description = models.TextField()
   create_date = models.DateTimeField(default=timezone.now)
   

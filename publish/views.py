@@ -12,9 +12,9 @@ from django.urls import reverse, reverse_lazy
 def publish_list(request):
   queryset = Publish.objects.all()
   context = {
-    "name_list":queryset
+    "object_list": queryset
   }
-  return render(request, "publish/resume.html",context)
+  return render(request,context)
 
 
 
