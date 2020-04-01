@@ -1,0 +1,15 @@
+
+{% extends 'publish/navbar.html' %}
+
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'publish/css/navbar.css' %}" type="text/css">
+
+<div class="container">
+
+  
+  <h1>{{ publish.publish_name }}</h1>
+  <p>{{ publish.description }}</p>
+  <h1>{{ publish.author}}</h1>
+</div>
+{% endblock %}
