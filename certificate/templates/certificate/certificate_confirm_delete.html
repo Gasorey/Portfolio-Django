@@ -1,0 +1,14 @@
+{% extends 'publish/navbar.html' %}
+{% block content %}
+{% load static %}
+<div class="container">
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <h1>Do you want to DELETE {{ certificate.name }}?</h1>
+        <input type="submit" value="Deletar">
+        
+    </form>
+</div>
+    
+{% endblock %}

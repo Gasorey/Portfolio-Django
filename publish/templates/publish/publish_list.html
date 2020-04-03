@@ -6,10 +6,7 @@
 <div class="container">
     <h1><a href="{% url 'publish_detail' pk=Publish.pk %}">{{ Publish.name }}</a></h1>
     <p> Desenvolvido em: {{Publish.create_date|date:" M Y "}}</p>
-    {% for names in object_test %}
-    <a href="">{{ names.name }}</a>
-    {% endfor %}
-
+    
   </div>
   {% endfor %}
   {% endblock %}

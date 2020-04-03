@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'bootstrap4',
     'publish',
+    'certificate'
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'publish.context_processors.context_publish',
+                'certificate.context_processors.context_certificate',
             ],
         },
     },
@@ -127,5 +130,8 @@ STATICFILES_DIR = [os.path.join(BASE_DIR,'static')]
 
 LOGIN_REDIRECT_URL = ''
 LOGOUT_REDIRECT_URL = ''
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'certificate/media')
 
 INTERNAL_IPS = ['127.0.0.1']

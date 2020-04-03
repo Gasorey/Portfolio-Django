@@ -19,26 +19,40 @@
    
    <div class="sidenav">
     <a href="{% url 'resume' %}">Resume</a>
-    <button class="dropdown-btn">Projetos
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-container">
-      <a href="{% url 'publish_list' %}">List</a>
-    </div>
-    <a href="">Certificados</a>
+      <button class="dropdown-btn">Projetos
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        
+        {% for Publish in publish_name %}
+        <a href="{% url 'publish_detail' pk=Publish.pk%}">{{ Publish.name }}</a>
+        {% endfor %}
+
+      </div>
+    
+      <button class="dropdown-btn">Certificados
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-container">
+        
+        {% for Certificate in certificate_name %}
+        <a href="{% url 'certificate_detail' pk=Certificate.pk%}">{{ Certificate.name }}</a>
+        {% endfor %}
+
+      </div>
     {% if user.is_superuser%}
-      <a class="nav-item nav-link active" href="{% url 'publish_form' %}">Nova Publicação</a>
+      <a class="nav-item nav-link active" href="{% url 'publish_form' %}">Novo Projeto</a>
+      <a class="nav-item nav-link active" href="{% url 'certificate_form' %}">Novo Certificado</a>
       <a class="nav-item nav-link active" href="{% url 'logout' %}">Logout</a>
     {% else %}
       <a href="{% url 'admin:index' %}" class="nav-item nav-link active">Admin</a>
       <a class="nav-link"  href="https://www.linkedin.com/in/gabriel-asorey-45881156/"><i class="fab fa-linkedin-in fa-lg"></i></a>
       <a class="nav-link" href="https://github.com/Gasorey"><i class="fab fa-github fa-lg" ></i></a>
     {% endif %}
-      
+    
     
   </div>
-  {%block content %}
-
+  {% block content %}
   {% endblock %}
  
   <script src="{% static "publish/js/navbar.js" %}" type="text/javascript"></script>
