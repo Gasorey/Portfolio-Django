@@ -17,8 +17,10 @@
 </head>
 <body>
    
-   <div class="sidenav">
-    <a href="{% url 'resume' %}">Resume</a>
+<div class="container">
+  <div class="aside">
+    <div class="sidenav">
+      <a href="{% url 'resume' %}">Resume</a>
       <button class="dropdown-btn">Projetos
         <i class="fa fa-caret-down"></i>
       </button>
@@ -27,38 +29,48 @@
         {% for Publish in publish_name %}
         <a href="{% url 'publish_detail' pk=Publish.pk%}">{{ Publish.name }}</a>
         {% endfor %}
-
+        
       </div>
-    
+      
       <button class="dropdown-btn">Certificados
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-container">
         
-        {% for Certificate in certificate_name %}
-        <a href="{% url 'certificate_detail' pk=Certificate.pk%}">{{ Certificate.name }}</a>
-        {% endfor %}
+          {% for Certificate in certificate_name %}
+          <a href="{% url 'certificate_detail' pk=Certificate.pk%}">{{ Certificate.name }}</a>
+          {% endfor %}
+          
+        </div>
+        {% if user.is_superuser%}
+        <a class="nav-item nav-link active" href="{% url 'publish_form' %}">Novo Projeto</a>
+        <a class="nav-item nav-link active" href="{% url 'certificate_form' %}">Novo Certificado</a>
+        <a class="nav-item nav-link active" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'admin:index' %}" class="nav-item nav-link active">Admin</a>
+        <a class="nav-link"  href="https://www.linkedin.com/in/gabriel-asorey-45881156/"><i class="fab fa-linkedin-in fa-lg"></i></a>
+        <a class="nav-link" href="https://github.com/Gasorey"><i class="fab fa-github fa-lg" ></i></a>
+        {% endif %}
+      </div>
+    </div>
+      <div class="header">
 
       </div>
-    {% if user.is_superuser%}
-      <a class="nav-item nav-link active" href="{% url 'publish_form' %}">Novo Projeto</a>
-      <a class="nav-item nav-link active" href="{% url 'certificate_form' %}">Novo Certificado</a>
-      <a class="nav-item nav-link active" href="{% url 'logout' %}">Logout</a>
-    {% else %}
-      <a href="{% url 'admin:index' %}" class="nav-item nav-link active">Admin</a>
-      <a class="nav-link"  href="https://www.linkedin.com/in/gabriel-asorey-45881156/"><i class="fab fa-linkedin-in fa-lg"></i></a>
-      <a class="nav-link" href="https://github.com/Gasorey"><i class="fab fa-github fa-lg" ></i></a>
-    {% endif %}
+      <div class="center">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </div>
     
+      
+      {% block test %}
+      {% endblock %}
     
-  </div>
-  {% block content %}
-  {% endblock %}
- 
-  <script src="{% static "publish/js/navbar.js" %}" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+     
+    
+      <script src="{% static "publish/js/navbar.js" %}" type="text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </body>
 </html>

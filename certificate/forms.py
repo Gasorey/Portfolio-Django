@@ -4,4 +4,4 @@ from .models import Certificate
 class CertificateCreateForm(forms.ModelForm):
   class Meta:
     model = Certificate
-    fields = ['user','org','name','description','create_date','photo']
+    fields = ['user','org','name','description','tech','create_date','photo']

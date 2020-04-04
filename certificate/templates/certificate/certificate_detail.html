@@ -3,17 +3,22 @@
 {% block content %}
 
 
-<div class="container">
-  <img src="{{ certificate.photo.url|default_if_none:'#'  }}" alt="LaLALA" width="640px">
-  <h1>{{ certificate.name }}</h1>
-  <h2>{{ certificate.org }}</h2>
-  <h1>{{ certificate.create_date}}</h1>
+<div class="teste">
   
-</div>
-<div class="container">
-  {% if user.is_superuser%}
-    <a href="{% url 'certificate_delete' pk=certificate.pk %}"class='btn btn-primary'>Delete</a>
+  <h1>{{ certificate.name }}</h1>
+  <div class="certificateImage">
+    <img src="{{ certificate.photo.url|default_if_none:''  }}" alt="LaLALA" width="640px">
+  </div>
+    <h3>{{ certificate.description }}</h3>
+    <h4>Instituição: {{ certificate.org }}</h4>
+    <h4>Data de conclusão: {{ certificate.create_date|date:" M Y "}}</h4>
+    
+    </div>
+    <br>
+    <div class="teste2">
+      {% if user.is_superuser%}
+      <a href="{% url 'certificate_delete' pk=certificate.pk %}"class='btn btn-primary'>Delete</a>
     <a href="{% url 'certificate_update' pk=certificate.pk %}"class='btn btn-primary'>Update</a>
-  {% endif %}
-</div>
-{% endblock %}
+    {% endif %}
+  </div>
+  {% endblock %}

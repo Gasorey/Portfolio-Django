@@ -11,7 +11,8 @@ class Publish(models.Model):
   user = models.ForeignKey(User,null=True, on_delete=models.CASCADE )
   author = models.CharField(max_length=256, null= True)
   name = models.CharField(max_length=256, null = True)
-  github = models.CharField(max_length=256,null=True)
+  github = models.CharField(max_length=256,null=True, blank = True)
+  tech = models.CharField(max_length=500, null=True, blank = True)
   description = models.TextField()
   create_date = models.DateTimeField(default=timezone.now)
   

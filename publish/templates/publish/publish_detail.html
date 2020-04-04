@@ -3,13 +3,17 @@
 {% block content %}
 
 
-<div class="container">
-  <h1>{{ publish.name }}</h1>
-  <h2>{{ publish.description }}</h2>
-  <h1>{{ publish.author}}</h1>
+<div class="test42">
+  <h1>{{ publish.name }}</h1><br>
+  <h2>Descrição:</h2>
+  <h3>{{ publish.description }}</h3><br>
+  
+  <h3>Desenvolvido por: <strong>{{ publish.author}}</strong></h3>
+  <h4>Tecnologias utilizadas: {{ publish.tech }}</h4>
   <a class="nav-link" href="{{ publish.github }}"><i class="fab fa-github fa-lg"></i></a>
 </div>
-<div class="container">
+<br>
+<div class="test42">
   {% if user.is_superuser%}
 
     <a href="{% url 'publish_delete' pk=publish.pk %}"class='btn btn-primary'>Delete</a>

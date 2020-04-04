@@ -9,12 +9,12 @@ from django.contrib.auth.models import User
 
 class Certificate(models.Model):
   user = models.ForeignKey(User,null=True, on_delete=models.CASCADE )
-  org = models.CharField(max_length=256, null= True)
-  name = models.CharField(max_length=256, null = True)
-  description = models.TextField(null=True)
-  create_date = models.DateTimeField(null = True)
+  org = models.CharField(max_length=256, null= True, blank=True)
+  name = models.CharField(max_length=256, null = True, blank=True)
+  description = models.TextField(null=True, blank=True)
+  create_date = models.DateTimeField(null = True, blank=True)
   photo = models.ImageField(upload_to='certificate/image', null=True, blank=True)
-
+  tech = models.CharField(max_length=500, null=True, blank = True)
   def image (self):
     self.photo.save()    
 
