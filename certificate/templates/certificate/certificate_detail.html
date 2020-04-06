@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<div class="teste">
+<div class="container">
   
   <h1>{{ certificate.name }}</h1>
   <div class="certificateImage">
@@ -15,7 +15,7 @@
     
     </div>
     <br>
-    <div class="teste2">
+    <div class="container-user">
       {% if user.is_superuser%}
       <a href="{% url 'certificate_delete' pk=certificate.pk %}"class='btn btn-primary'>Delete</a>
     <a href="{% url 'certificate_update' pk=certificate.pk %}"class='btn btn-primary'>Update</a>

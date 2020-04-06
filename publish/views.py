@@ -5,11 +5,11 @@ from .forms import PublishCreateForm
 from publish.models import Publish
 from django.urls import reverse, reverse_lazy
 
+
 from django.utils import timezone
 
 
-
-
+ 
 
 class ResumeView(TemplateView):
   template_name = 'publish/resume.html'
@@ -43,3 +43,4 @@ class PublishUpdateView(LoginRequiredMixin,UpdateView):
   login_url = '/login'
   form_class = PublishCreateForm
   redirect_field_name = ''
+

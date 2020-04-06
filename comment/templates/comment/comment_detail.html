@@ -1,0 +1,24 @@
+{% extends 'publish/navbar.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+  <h2>Comentário feito por: {{ comment.name }}</h2><br>
+  <h2>Comentário:</h2>
+  <h3>{{ comment.commentary }}</h3><br>
+  
+  
+  <h4>De onde a pessoa veio: {{ comment.empresa }}</h4>
+</div>
+<br>
+<div class="container-user">
+  {% if user.is_superuser%}
+
+    <a href="{% url 'comment_delete' pk=comment.pk %}"class='btn btn-primary'>Delete</a>
+    <a href="{% url 'comment_update' pk=comment.pk %}"class='btn btn-primary'>Update</a>
+
+
+  {% endif %}
+</div>
+{% endblock %}

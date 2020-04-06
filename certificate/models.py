@@ -15,6 +15,8 @@ class Certificate(models.Model):
   create_date = models.DateTimeField(null = True, blank=True)
   photo = models.ImageField(upload_to='certificate/image', null=True, blank=True)
   tech = models.CharField(max_length=500, null=True, blank = True)
+  
+  
   def image (self):
     self.photo.save()    
 

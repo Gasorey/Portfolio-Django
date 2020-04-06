@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<div class="test42">
+<div class="container">
   <h1>{{ publish.name }}</h1><br>
   <h2>Descrição:</h2>
   <h3>{{ publish.description }}</h3><br>
@@ -13,7 +13,7 @@
   <a class="nav-link" href="{{ publish.github }}"><i class="fab fa-github fa-lg"></i></a>
 </div>
 <br>
-<div class="test42">
+<div class="container-user">
   {% if user.is_superuser%}
 
     <a href="{% url 'publish_delete' pk=publish.pk %}"class='btn btn-primary'>Delete</a>

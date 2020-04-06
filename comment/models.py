@@ -4,17 +4,14 @@ from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django.contrib.auth.models import User
 
-
-
-
-class Publish(models.Model):
-  user = models.ForeignKey(User,null=True, on_delete=models.CASCADE )
-  author = models.CharField(max_length=256, null= True)
+# Create your models here.
+class Comment(models.Model): 
   name = models.CharField(max_length=256, null = True)
-  github = models.CharField(max_length=256,null=True, blank = True)
-  tech = models.CharField(max_length=500, null=True, blank = True)
-  description = models.TextField()
+  empresa = models.CharField(max_length=256,null=True,blank=True)
+  email = models.EmailField(null=True,blank=True)
+  commentary = models.TextField()
   create_date = models.DateTimeField(default=timezone.now)
+  
   
 
   def published(self):
@@ -22,8 +19,4 @@ class Publish(models.Model):
     self.save()
   
   def get_absolute_url(self):
-    return reverse('resume')
-
-  # def __str__(self):
-  #   self.publish_name
-  
+    return reverse('obrigado')

@@ -17,10 +17,10 @@
 </head>
 <body>
    
-<div class="container">
+<div class="container-main">
   <div class="aside">
     <div class="sidenav">
-      <a href="{% url 'resume' %}">Resume</a>
+      <a href="{% url 'resume' %}">Sobre</a>
       <button class="dropdown-btn">Projetos
         <i class="fa fa-caret-down"></i>
       </button>
@@ -40,13 +40,16 @@
           {% for Certificate in certificate_name %}
           <a href="{% url 'certificate_detail' pk=Certificate.pk%}">{{ Certificate.name }}</a>
           {% endfor %}
+        
           
         </div>
         {% if user.is_superuser%}
         <a class="nav-item nav-link active" href="{% url 'publish_form' %}">Novo Projeto</a>
+        <a class="nav-item nav-link active" href="{% url 'list_comment' %}">Comments List</a>
         <a class="nav-item nav-link active" href="{% url 'certificate_form' %}">Novo Certificado</a>
         <a class="nav-item nav-link active" href="{% url 'logout' %}">Logout</a>
         {% else %}
+        <a href="{% url 'create_comment' %}" class="nav-item nav-link active">Fazer comentário</a>
         <a href="{% url 'admin:index' %}" class="nav-item nav-link active">Admin</a>
         <a class="nav-link"  href="https://www.linkedin.com/in/gabriel-asorey-45881156/"><i class="fab fa-linkedin-in fa-lg"></i></a>
         <a class="nav-link" href="https://github.com/Gasorey"><i class="fab fa-github fa-lg" ></i></a>
@@ -58,6 +61,7 @@
       </div>
       <div class="center">
         {% block content %}
+        
         {% endblock %}
       </div>
     </div>

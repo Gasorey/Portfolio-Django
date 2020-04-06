@@ -10,6 +10,7 @@ urlpatterns = [
   path('publish/<int:pk>/',views.PublishDetailView.as_view(),name='publish_detail'),
   path('publish/<int:pk>/delete',views.PublishDeleteView.as_view(),name='publish_delete'),
   path('publish/<int:pk>/update',views.PublishUpdateView.as_view(),name='publish_update'),
+  
 
  
 ]

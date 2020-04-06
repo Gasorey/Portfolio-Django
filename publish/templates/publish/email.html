@@ -1,14 +1,14 @@
 {% extends 'publish/navbar.html' %}
 {% load bootstrap4 %}
 {% block content %}
-
 <div class="container">
-
-  <h1>Nova Certificado</h1>
-  <form action="" method="post">
+  <h1>Contact Us</h1>
+  <form method="post">
     {% csrf_token %}
-    {% bootstrap_form form%}
-    <input type="submit" value="Novo Certificado">
+    {{ form.as_p }}
+    <div class="form-actions">
+      <button type="submit">Send</button>
+    </div>
   </form>
 </div>
 {% endblock %}

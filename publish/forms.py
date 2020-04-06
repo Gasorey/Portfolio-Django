@@ -5,3 +5,6 @@ class PublishCreateForm(forms.ModelForm):
   class Meta:
     model = Publish
     fields = ['user','author','name','description','tech','github']
+    
+
+
