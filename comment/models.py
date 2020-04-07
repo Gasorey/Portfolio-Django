@@ -12,8 +12,6 @@ class Comment(models.Model):
   commentary = models.TextField()
   create_date = models.DateTimeField(default=timezone.now)
   
-  
-
   def published(self):
     self.create_date = timezone.now()
     self.save()
