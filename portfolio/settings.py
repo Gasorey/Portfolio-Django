@@ -26,9 +26,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 SECRET_KEY = 'mb7^*89conn*dad9c-r)!jd@b+49-6(3wouff%i@v#kre%n91='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['portfolio-gasorey.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -142,5 +142,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'certificate/media')
 
 
 
-django_heroku.settings(locals())
+
 
